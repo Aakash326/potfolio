@@ -6,46 +6,62 @@
 
 @layer base {
   :root {
-    --background: 0 0% 98%;
-    --foreground: 210 24% 16%;
+    --background: 8 20% 6%;
+    --foreground: 210 40% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 210 24% 16%;
+    --card: 8 20% 8%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 210 24% 16%;
+    --popover: 8 20% 8%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 174 100% 29%;
-    --primary-foreground: 0 0% 100%;
-    --primary-hover: 174 100% 25%;
+    --primary: 174 100% 50%;
+    --primary-foreground: 8 20% 6%;
+    --primary-hover: 174 100% 45%;
 
-    --secondary: 174 30% 96%;
-    --secondary-foreground: 174 100% 29%;
+    --secondary: 220 30% 12%;
+    --secondary-foreground: 174 100% 50%;
 
-    --muted: 210 20% 96%;
-    --muted-foreground: 210 16% 50%;
+    --muted: 220 20% 15%;
+    --muted-foreground: 210 16% 65%;
 
-    --accent: 174 60% 45%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 240 100% 70%;
+    --accent-foreground: 8 20% 6%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 20% 88%;
-    --input: 210 20% 93%;
-    --ring: 174 100% 29%;
+    --border: 220 20% 18%;
+    --input: 220 20% 15%;
+    --ring: 174 100% 50%;
 
     --radius: 0.75rem;
 
+    /* AI-themed colors */
+    --ai-blue: 240 100% 70%;
+    --ai-indigo: 260 100% 75%;
+    --ai-teal: 174 100% 50%;
+    --ai-purple: 280 100% 70%;
+    --ai-cyan: 193 100% 60%;
+    
+    /* Neon effects */
+    --neon-primary: 174 100% 50%;
+    --neon-secondary: 240 100% 70%;
+    --neon-accent: 280 100% 70%;
+    
     /* Custom portfolio tokens */
-    --gradient-hero: linear-gradient(135deg, 174 100% 29%, 193 82% 31%);
-    --gradient-card: linear-gradient(145deg, 0 0% 100%, 210 20% 98%);
-    --shadow-card: 0 4px 20px -4px hsl(174 100% 29% / 0.1);
-    --shadow-hover: 0 8px 30px -8px hsl(174 100% 29% / 0.2);
+    --gradient-hero: linear-gradient(135deg, hsl(174 100% 20%), hsl(240 100% 25%), hsl(280 100% 25%));
+    --gradient-neural: linear-gradient(45deg, hsl(174 100% 50% / 0.1), hsl(240 100% 70% / 0.1), hsl(280 100% 70% / 0.1));
+    --gradient-card: linear-gradient(145deg, hsl(8 20% 8%), hsl(220 20% 12%));
+    --shadow-neon: 0 0 20px hsl(var(--neon-primary) / 0.3), 0 0 40px hsl(var(--neon-primary) / 0.1);
+    --shadow-neon-hover: 0 0 30px hsl(var(--neon-primary) / 0.5), 0 0 60px hsl(var(--neon-primary) / 0.2);
+    --shadow-card: 0 4px 20px -4px hsl(0 0% 0% / 0.3);
+    --shadow-hover: 0 8px 30px -8px hsl(174 100% 50% / 0.3);
     
     /* Animation tokens */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-glow: all 0.5s ease-in-out;
 
     --sidebar-background: 0 0% 98%;
 
@@ -111,6 +127,8 @@
   body {
     @apply bg-background text-foreground font-sans;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--gradient-hero);
+    background-attachment: fixed;
   }
 }
 
@@ -132,10 +150,48 @@
   }
   
   .gradient-text {
-    background: var(--gradient-hero);
+    background: linear-gradient(135deg, hsl(var(--ai-teal)), hsl(var(--ai-blue)), hsl(var(--ai-purple)));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+  
+  .tech-heading {
+    font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+    font-weight: 600;
+  }
+  
+  .neon-glow {
+    box-shadow: var(--shadow-neon);
+    transition: var(--transition-glow);
+  }
+  
+  .neon-glow:hover {
+    box-shadow: var(--shadow-neon-hover);
+    transform: translateY(-2px);
+  }
+  
+  .avatar-float {
+    animation: float 6s ease-in-out infinite;
+    position: relative;
+  }
+  
+  .avatar-float::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    padding: 4px;
+    background: linear-gradient(45deg, hsl(var(--neon-primary)), hsl(var(--neon-secondary)), hsl(var(--neon-accent)), hsl(var(--neon-primary)));
+    border-radius: inherit;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: xor;
+    animation: rotate 4s linear infinite;
+  }
+  
+  .neural-bg {
+    background: var(--gradient-neural);
+    backdrop-filter: blur(100px);
   }
   
   .upload-zone {
@@ -207,5 +263,41 @@
   50% { 
     transform: translateY(-35px) translateX(-10px) rotate(180deg); 
     opacity: 0.8;
+  }
+}
+
+@keyframes shimmer {
+  0%, 100% { 
+    background-position: 0% 50%; 
+  }
+  50% { 
+    background-position: 100% 50%; 
+  }
+}
+
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px); 
+  }
+  50% { 
+    transform: translateY(-10px); 
+  }
+}
+
+@keyframes rotate {
+  0% { 
+    transform: rotate(0deg); 
+  }
+  100% { 
+    transform: rotate(360deg); 
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    box-shadow: 0 0 20px hsl(var(--neon-primary) / 0.3); 
+  }
+  50% { 
+    box-shadow: 0 0 40px hsl(var(--neon-primary) / 0.6), 0 0 60px hsl(var(--neon-secondary) / 0.3); 
   }
 }
