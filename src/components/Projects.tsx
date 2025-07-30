@@ -14,7 +14,7 @@ interface Project {
   techStack: string[];
   githubUrl?: string;
   liveUrl?: string;
-  category: 'ML' | 'DL' | 'NLP' | 'Agentic AI' | 'Web Development';
+  category: 'ML' | 'DL' | 'NLP' | 'Agentic AI' | 'MLOPS and LLMOPS';
 }
 
 const Projects = () => {
@@ -55,13 +55,13 @@ const Projects = () => {
     }
   };
 
-  const categories: Project['category'][] = ['ML', 'DL', 'NLP', 'Agentic AI', 'Web Development'];
+  const categories: Project['category'][] = ['ML', 'DL', 'NLP', 'Agentic AI', 'MLOPS and LLMOPS'];
   const categoryDescriptions = {
     'ML': 'Machine Learning projects including supervised/unsupervised learning, data analysis, and predictive models',
     'DL': 'Deep Learning projects with neural networks, computer vision, and advanced architectures',
     'NLP': 'Natural Language Processing projects including text analysis, sentiment analysis, and language models',
     'Agentic AI': 'AI Agents and autonomous systems that can perform tasks and make decisions independently',
-    'Web Development': 'Full-stack web applications, frontend interfaces, and modern web technologies'
+    'MLOPS and LLMOPS': 'MLOps and LLMOps projects including model deployment, monitoring, and production ML pipelines'
   };
 
   const getDefaultTechStack = (category: Project['category']): string[] => {
@@ -74,8 +74,8 @@ const Projects = () => {
         return ['Python', 'Transformers', 'spaCy'];
       case 'Agentic AI':
         return ['Python', 'LangChain', 'OpenAI'];
-      case 'Web Development':
-        return ['React', 'TypeScript', 'Node.js'];
+      case 'MLOPS and LLMOPS':
+        return ['Docker', 'Kubernetes', 'MLflow'];
       default:
         return ['Python', 'Machine Learning'];
     }
