@@ -3,7 +3,7 @@ import { Github, ExternalLink, X, FolderOpen, Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
 
@@ -14,7 +14,7 @@ interface Project {
   techStack: string[];
   githubUrl?: string;
   liveUrl?: string;
-  category: 'ML' | 'DL' | 'LLM' | 'Agentic AI' | 'Transformers';
+  category: 'ML' | 'DL' | 'NLP' | 'Agentic AI' | 'Web Development';
 }
 
 const Projects = () => {
@@ -55,13 +55,13 @@ const Projects = () => {
     }
   };
 
-  const categories: Project['category'][] = ['ML', 'DL', 'LLM', 'Agentic AI', 'Transformers'];
+  const categories: Project['category'][] = ['ML', 'DL', 'NLP', 'Agentic AI', 'Web Development'];
   const categoryDescriptions = {
     'ML': 'Machine Learning projects including supervised/unsupervised learning, data analysis, and predictive models',
     'DL': 'Deep Learning projects with neural networks, computer vision, and advanced architectures',
-    'LLM': 'Large Language Model projects including fine-tuning, prompt engineering, and NLP applications',
+    'NLP': 'Natural Language Processing projects including text analysis, sentiment analysis, and language models',
     'Agentic AI': 'AI Agents and autonomous systems that can perform tasks and make decisions independently',
-    'Transformers': 'Transformer-based models and attention mechanisms for various AI applications'
+    'Web Development': 'Full-stack web applications, frontend interfaces, and modern web technologies'
   };
 
   const getDefaultTechStack = (category: Project['category']): string[] => {
@@ -70,12 +70,12 @@ const Projects = () => {
         return ['Python', 'Scikit-learn', 'Pandas'];
       case 'DL':
         return ['Python', 'TensorFlow', 'PyTorch'];
-      case 'LLM':
-        return ['Python', 'Transformers', 'Hugging Face'];
+      case 'NLP':
+        return ['Python', 'Transformers', 'spaCy'];
       case 'Agentic AI':
         return ['Python', 'LangChain', 'OpenAI'];
-      case 'Transformers':
-        return ['Python', 'Transformers', 'Attention'];
+      case 'Web Development':
+        return ['React', 'TypeScript', 'Node.js'];
       default:
         return ['Python', 'Machine Learning'];
     }
@@ -178,49 +178,44 @@ const Projects = () => {
     project: Project;
     index: number;
   }) => (
-    <Card key={project.id} className="portfolio-card group mb-1 h-[140px]">
-      <CardHeader className="relative pb-1 p-2">
-        <div className="flex items-center gap-1">
-          <div className="w-3 h-3 rounded-full bg-primary/10 flex items-center justify-center">
-            <span className="text-[8px] font-semibold text-primary">{index + 1}</span>
+    <Card key={project.id} className="portfolio-card group h-auto border-border/50 hover:border-primary/30 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10">
+      <CardHeader className="relative pb-3 p-4">
+        <div className="flex items-start gap-3">
+          <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+            <span className="text-xs font-semibold text-primary">{index + 1}</span>
           </div>
-          <div className="flex-1">
-            <CardTitle className="text-xs cursor-pointer leading-tight truncate" contentEditable suppressContentEditableWarning onBlur={e => updateProject(project.id, {
+          <div className="flex-1 min-w-0">
+            <CardTitle className="text-base cursor-pointer leading-tight" contentEditable suppressContentEditableWarning onBlur={e => updateProject(project.id, {
               title: e.currentTarget.textContent || ''
             })}>
               {project.title}
             </CardTitle>
+            <Badge variant="outline" className="w-fit text-xs mt-1">
+              {project.category}
+            </Badge>
           </div>
-          <Button variant="ghost" size="sm" className="opacity-0 group-hover:opacity-100 transition-opacity h-4 w-4 p-0" onClick={() => removeProject(project.id)}>
-            <X className="h-2 w-2" />
+          <Button variant="ghost" size="sm" className="opacity-0 group-hover:opacity-100 transition-opacity h-8 w-8 p-0" onClick={() => removeProject(project.id)}>
+            <X className="h-4 w-4" />
           </Button>
         </div>
-        <Badge variant="outline" className="w-fit text-[8px] py-0 px-1 h-4">
-          {project.category}
-        </Badge>
       </CardHeader>
-      <CardContent className="p-2 pt-0 flex flex-col">
-        <p className="text-muted-foreground mb-1 cursor-pointer text-[9px] leading-tight line-clamp-2 flex-1" contentEditable suppressContentEditableWarning onBlur={e => updateProject(project.id, {
+      <CardContent className="p-4 pt-0 flex flex-col gap-3">
+        <p className="text-muted-foreground cursor-pointer text-sm leading-relaxed" contentEditable suppressContentEditableWarning onBlur={e => updateProject(project.id, {
           description: e.currentTarget.textContent || ''
         })}>
           {project.description}
         </p>
         
-        <div className="flex flex-wrap gap-0.5 mb-1">
-          {project.techStack.slice(0, 2).map((tech, index) => (
-            <Badge key={index} variant="secondary" className="text-[8px] py-0 px-1 h-3">
+        <div className="flex flex-wrap gap-1">
+          {project.techStack.map((tech, index) => (
+            <Badge key={index} variant="secondary" className="text-xs">
               {tech}
             </Badge>
           ))}
-          {project.techStack.length > 2 && (
-            <Badge variant="secondary" className="text-[8px] py-0 px-1 h-3">
-              +{project.techStack.length - 2}
-            </Badge>
-          )}
         </div>
 
-        <div className="flex gap-1">
-          <Button variant="outline" size="sm" className="h-5 text-[8px] px-1 flex-1" asChild>
+        <div className="flex gap-2 mt-auto">
+          <Button variant="outline" size="sm" className="flex-1" asChild>
             <a href={project.githubUrl || '#'} target="_blank" rel="noopener noreferrer" onClick={e => {
               if (!project.githubUrl) {
                 e.preventDefault();
@@ -230,11 +225,11 @@ const Projects = () => {
                 });
               }
             }}>
-              <Github className="h-1.5 w-1.5 mr-0.5" />
-              Git
+              <Github className="h-4 w-4 mr-2" />
+              GitHub
             </a>
           </Button>
-          <Button variant="outline" size="sm" className="h-5 text-[8px] px-1 flex-1" asChild>
+          <Button variant="outline" size="sm" className="flex-1" asChild>
             <a href={project.liveUrl || '#'} target="_blank" rel="noopener noreferrer" onClick={e => {
               if (!project.liveUrl) {
                 e.preventDefault();
@@ -244,7 +239,7 @@ const Projects = () => {
                 });
               }
             }}>
-              <ExternalLink className="h-1.5 w-1.5 mr-0.5" />
+              <ExternalLink className="h-4 w-4 mr-2" />
               Demo
             </a>
           </Button>
@@ -262,64 +257,54 @@ const Projects = () => {
             Explore my projects organized by specialization areas. Each project includes GitHub links and live demos.
           </p>
 
-          {/* Category Tabs */}
-          <Tabs defaultValue="ML" className="w-full">
-            <TabsList className="grid w-full grid-cols-5 mb-8">
-              {categories.map(category => (
-                <TabsTrigger key={category} value={category} className="text-xs sm:text-sm">
-                  {category}
-                </TabsTrigger>
-              ))}
-            </TabsList>
-            
+          {/* Collapsible Category Sections */}
+          <Accordion type="multiple" className="w-full space-y-4">
             {categories.map(category => {
               const categoryProjects = getProjectsByCategory(category);
               return (
-                <TabsContent key={category} value={category} className="space-y-6">
-                  {/* Category Header */}
-                  <Card className="portfolio-card">
-                    <CardHeader className="pb-4">
-                      <CardTitle className="text-center text-2xl gradient-text">
-                        {category} Projects
-                      </CardTitle>
-                      <p className="text-sm text-muted-foreground text-center leading-relaxed max-w-2xl mx-auto">
-                        {categoryDescriptions[category]}
-                      </p>
-                    </CardHeader>
-                    <CardContent className="pt-0">
+                <AccordionItem key={category} value={category} className="border border-border/50 rounded-lg overflow-hidden bg-card/50 backdrop-blur-sm">
+                  <AccordionTrigger className="px-6 py-4 hover:no-underline hover:bg-muted/50 transition-colors">
+                    <div className="flex items-center justify-between w-full mr-4">
+                      <div className="text-left">
+                        <h3 className="text-xl font-semibold gradient-text">{category}</h3>
+                        <p className="text-sm text-muted-foreground mt-1">{categoryDescriptions[category]}</p>
+                      </div>
+                      <Badge variant="secondary" className="ml-4">
+                        {categoryProjects.length} {categoryProjects.length === 1 ? 'project' : 'projects'}
+                      </Badge>
+                    </div>
+                  </AccordionTrigger>
+                  <AccordionContent className="px-6 pb-6">
+                    <div className="space-y-6">
                       {/* Add new project button */}
-                      <div className="border-2 border-dashed border-primary/20 rounded-lg p-6 text-center hover:border-primary/40 hover:bg-primary/5 transition-colors cursor-pointer" onClick={() => addNewProject(category)}>
-                        <Plus className="h-12 w-12 text-primary mx-auto mb-3" />
-                        <p className="text-sm text-muted-foreground mb-2">
-                          Click to add a new {category} project
-                        </p>
-                        <p className="text-sm font-medium text-primary">
-                          Currently {categoryProjects.length} projects in this category
+                      <div className="border-2 border-dashed border-primary/20 rounded-lg p-4 text-center hover:border-primary/40 hover:bg-primary/5 transition-colors cursor-pointer" onClick={() => addNewProject(category)}>
+                        <Plus className="h-8 w-8 text-primary mx-auto mb-2" />
+                        <p className="text-sm text-muted-foreground mb-1">
+                          Add a new {category} project
                         </p>
                       </div>
-                    </CardContent>
-                  </Card>
 
-                  {/* Projects List */}
-                  {categoryProjects.length > 0 ? (
-                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-2">
-                      {categoryProjects.map((project, index) => (
-                        <ProjectCard key={project.id} project={project} index={index} />
-                      ))}
+                      {/* Projects Grid */}
+                      {categoryProjects.length > 0 ? (
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                          {categoryProjects.map((project, index) => (
+                            <ProjectCard key={project.id} project={project} index={index} />
+                          ))}
+                        </div>
+                      ) : (
+                        <div className="text-center py-8">
+                          <FolderOpen className="h-12 w-12 text-muted-foreground mx-auto mb-3" />
+                          <p className="text-muted-foreground text-sm">
+                            No {category} projects yet. Click above to create your first one.
+                          </p>
+                        </div>
+                      )}
                     </div>
-                  ) : (
-                    <div className="text-center py-16">
-                      <FolderOpen className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
-                      <h3 className="text-xl font-semibold text-foreground mb-2">No {category} projects yet</h3>
-                      <p className="text-muted-foreground">
-                        Click the add button above to create your first {category} project.
-                      </p>
-                    </div>
-                  )}
-                </TabsContent>
+                  </AccordionContent>
+                </AccordionItem>
               );
             })}
-          </Tabs>
+          </Accordion>
 
           {/* Global empty state */}
           {projects.length === 0 && (
