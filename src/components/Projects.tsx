@@ -14,7 +14,7 @@ interface Project {
   techStack: string[];
   githubUrl?: string;
   liveUrl?: string;
-  category: 'ML' | 'DL' | 'NLP' | 'Agentic AI' | 'MLOPS and LLMOPS';
+  category: 'ML' | 'DL' | 'NLP/LLMS' | 'Agentic AI' | 'MLOPS and LLMOPS';
 }
 
 const Projects = () => {
@@ -55,11 +55,11 @@ const Projects = () => {
     }
   };
 
-  const categories: Project['category'][] = ['ML', 'DL', 'NLP', 'Agentic AI', 'MLOPS and LLMOPS'];
+  const categories: Project['category'][] = ['ML', 'DL', 'NLP/LLMS', 'Agentic AI', 'MLOPS and LLMOPS'];
   const categoryDescriptions = {
     'ML': 'Machine Learning projects including supervised/unsupervised learning, data analysis, and predictive models',
     'DL': 'Deep Learning projects with neural networks, computer vision, and advanced architectures',
-    'NLP': 'Natural Language Processing projects including text analysis, sentiment analysis, and language models',
+    'NLP/LLMS': 'Natural Language Processing and Large Language Models including text analysis, sentiment analysis, and language models',
     'Agentic AI': 'AI Agents and autonomous systems that can perform tasks and make decisions independently',
     'MLOPS and LLMOPS': 'MLOps and LLMOps projects including model deployment, monitoring, and production ML pipelines'
   };
@@ -70,7 +70,7 @@ const Projects = () => {
         return ['Python', 'Scikit-learn', 'Pandas'];
       case 'DL':
         return ['Python', 'TensorFlow', 'PyTorch'];
-      case 'NLP':
+      case 'NLP/LLMS':
         return ['Python', 'Transformers', 'spaCy'];
       case 'Agentic AI':
         return ['Python', 'LangChain', 'OpenAI'];
