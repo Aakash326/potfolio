@@ -14,7 +14,7 @@ interface Project {
   techStack: string[];
   githubUrl?: string;
   liveUrl?: string;
-  category: 'ML' | 'DL' | 'NLP/LLMS' | 'Agentic AI' | 'MLOPS and LLMOPS';
+  category: 'Best Project' | 'ML' | 'DL' | 'NLP/LLMS' | 'Agentic AI' | 'MLOPS and LLMOPS';
 }
 
 const Projects = () => {
@@ -55,8 +55,9 @@ const Projects = () => {
     }
   };
 
-  const categories: Project['category'][] = ['ML', 'DL', 'NLP/LLMS', 'Agentic AI', 'MLOPS and LLMOPS'];
+  const categories: Project['category'][] = ['Best Project', 'ML', 'DL', 'NLP/LLMS', 'Agentic AI', 'MLOPS and LLMOPS'];
   const categoryDescriptions = {
+    'Best Project': 'My most impressive and impactful projects that showcase the best of my skills and achievements',
     'ML': 'Machine Learning projects including supervised/unsupervised learning, data analysis, and predictive models',
     'DL': 'Deep Learning projects with neural networks, computer vision, and advanced architectures',
     'NLP/LLMS': 'Natural Language Processing and Large Language Models including text analysis, sentiment analysis, and language models',
@@ -66,6 +67,8 @@ const Projects = () => {
 
   const getDefaultTechStack = (category: Project['category']): string[] => {
     switch (category) {
+      case 'Best Project':
+        return ['React', 'TypeScript', 'Node.js'];
       case 'ML':
         return ['Python', 'Scikit-learn', 'Pandas'];
       case 'DL':
