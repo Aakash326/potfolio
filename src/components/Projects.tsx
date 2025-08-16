@@ -14,7 +14,7 @@ interface Project {
   techStack: string[];
   githubUrl?: string;
   liveUrl?: string;
-  category: 'Best Project' | 'ML' | 'DL' | 'NLP/LLMS' | 'Agentic AI' | 'MLOPS and LLMOPS';
+  category: 'Best Project' | 'ML' | 'DL' | 'NLP/LLMS' | 'Agentic AI/RAG Agent' | 'MLOPS and LLMOPS';
 }
 
 const Projects = () => {
@@ -55,13 +55,13 @@ const Projects = () => {
     }
   };
 
-  const categories: Project['category'][] = ['Best Project', 'ML', 'DL', 'NLP/LLMS', 'Agentic AI', 'MLOPS and LLMOPS'];
+  const categories: Project['category'][] = ['Best Project', 'ML', 'DL', 'NLP/LLMS', 'Agentic AI/RAG Agent', 'MLOPS and LLMOPS'];
   const categoryDescriptions = {
     'Best Project': 'My most impressive and impactful projects that showcase the best of my skills and achievements',
     'ML': 'Machine Learning projects including supervised/unsupervised learning, data analysis, and predictive models',
     'DL': 'Deep Learning projects with neural networks, computer vision, and advanced architectures',
     'NLP/LLMS': 'Natural Language Processing and Large Language Models including text analysis, sentiment analysis, and language models',
-    'Agentic AI': 'AI Agents and autonomous systems that can perform tasks and make decisions independently',
+    'Agentic AI/RAG Agent': 'AI Agents and RAG systems that can perform tasks, make decisions independently, and retrieve relevant information',
     'MLOPS and LLMOPS': 'MLOps and LLMOps projects including model deployment, monitoring, and production ML pipelines'
   };
 
@@ -75,7 +75,7 @@ const Projects = () => {
         return ['Python', 'TensorFlow', 'PyTorch'];
       case 'NLP/LLMS':
         return ['Python', 'Transformers', 'spaCy'];
-      case 'Agentic AI':
+      case 'Agentic AI/RAG Agent':
         return ['Python', 'LangChain', 'OpenAI'];
       case 'MLOPS and LLMOPS':
         return ['Docker', 'Kubernetes', 'MLflow'];
