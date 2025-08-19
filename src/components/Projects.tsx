@@ -218,7 +218,7 @@ const Projects = () => {
         </div>
 
         <div className="flex gap-2 mt-auto">
-          <Button variant="outline" size="sm" className="flex-1" asChild>
+          <Button variant="outline" size="sm" className="w-full" asChild>
             <a href={project.githubUrl || '#'} target="_blank" rel="noopener noreferrer" onClick={e => {
               if (!project.githubUrl) {
                 e.preventDefault();
@@ -230,20 +230,6 @@ const Projects = () => {
             }}>
               <Github className="h-4 w-4 mr-2" />
               GitHub
-            </a>
-          </Button>
-          <Button variant="outline" size="sm" className="flex-1" asChild>
-            <a href={project.liveUrl || '#'} target="_blank" rel="noopener noreferrer" onClick={e => {
-              if (!project.liveUrl) {
-                e.preventDefault();
-                const url = prompt('Enter Live Demo URL:');
-                if (url) updateProject(project.id, {
-                  liveUrl: url
-                });
-              }
-            }}>
-              <ExternalLink className="h-4 w-4 mr-2" />
-              Demo
             </a>
           </Button>
         </div>
