@@ -1,23 +1,31 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useNavigate } from 'react-router-dom';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   const navItems = [
     { href: '#home', label: 'Home' },
     { href: '#about', label: 'About' },
     { href: '#projects', label: 'Projects' },
     { href: '#ai-assistant', label: 'Ask My AI' },
+    { href: '/rag-agent', label: 'RAG Agent', isRoute: true },
     { href: '#contact', label: 'Contact' },
   ];
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+  const handleNavigation = (href: string, isRoute?: boolean) => {
+    if (isRoute) {
+      navigate(href);
       setIsOpen(false);
+    } else {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+        setIsOpen(false);
+      }
     }
   };
 
@@ -36,7 +44,7 @@ const Navigation = () => {
               {navItems.map((item) => (
                 <button
                   key={item.href}
-                  onClick={() => scrollToSection(item.href)}
+                  onClick={() => handleNavigation(item.href, item.isRoute)}
                   className="text-foreground hover:text-primary transition-colors duration-200"
                 >
                   {item.label}
@@ -65,7 +73,7 @@ const Navigation = () => {
               {navItems.map((item) => (
                 <button
                   key={item.href}
-                  onClick={() => scrollToSection(item.href)}
+                  onClick={() => handleNavigation(item.href, item.isRoute)}
                   className="block w-full text-left px-3 py-2 text-foreground hover:text-primary hover:bg-secondary/50 rounded-md transition-colors duration-200"
                 >
                   {item.label}
