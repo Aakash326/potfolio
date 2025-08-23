@@ -6,6 +6,8 @@ langchain_groq
 faiss-cpu
 pypdf
 huggingface_hub
-flask
+fastapi
+uvicorn[standard]
 python-dotenv
 sentence-transformers
+pydantic
