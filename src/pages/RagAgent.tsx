@@ -26,8 +26,7 @@ const RagAgent = () => {
     setIsLoading(true);
 
     try {
-      // Replace with your actual API endpoint
-      const response = await fetch('http://localhost:5001/api/chat', {
+      const response = await fetch('http://localhost:8000/api/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -190,7 +189,7 @@ const RagAgent = () => {
                   <div>
                     <h3 className="font-semibold mb-2 text-primary">Backend Stack</h3>
                     <ul className="space-y-1 text-sm text-muted-foreground">
-                      <li>• Flask API for serving requests</li>
+                      <li>• FastAPI for high-performance API</li>
                       <li>• LangChain for RAG pipeline</li>
                       <li>• FAISS vector database</li>
                       <li>• HuggingFace embeddings</li>

@@ -5,7 +5,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import RagAgent from "./pages/RagAgent"; // Add this import
+import RagAgent from "./pages/RagAgent";
+import CodePlayground from "./pages/CodePlayground";
 
 const queryClient = new QueryClient();
 
@@ -17,7 +18,8 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/rag-agent" element={<RagAgent />} /> {/* Add this route */}
+          <Route path="/rag-agent" element={<RagAgent />} />
+          <Route path="/code-playground" element={<CodePlayground />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

@@ -8,12 +8,14 @@ import Resume from '@/components/Resume';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import ParticleBackground from '@/components/ParticleBackground';
+import FloatingRagAgent from '@/components/FloatingRagAgent';
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background relative">
       <ParticleBackground />
       <Navigation />
+      <FloatingRagAgent />
       <main>
         <Hero />
         <About />

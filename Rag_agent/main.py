@@ -12,8 +12,8 @@ from app.config.config_class import Config
 load_dotenv()
 
 app = FastAPI(
-    title="RAG Medical Chatbot API",
-    description="A FastAPI backend for RAG-based medical chatbot",
+    title="Aakash Portfolio Chatbot API",
+    description="A FastAPI backend for RAG-based portfolio chatbot",
     version="1.0.0"
 )
 
@@ -101,9 +101,9 @@ async def chat(request: ChatRequest):
 async def get_status():
     return {
         "api_status": "running",
-        "rag_initialized": retriever is not None,
-        "model_loaded": retriever.llm_model is not None if retriever else False,
-        "vector_store_loaded": retriever.vector_store is not None if retriever else False
+        "rag_initialized": retriever is not None and hasattr(retriever, 'rag') and retriever.rag is not None,
+        "model_loaded": retriever is not None and hasattr(retriever, 'rag') and hasattr(retriever.rag, 'llm') and retriever.rag.llm is not None,
+        "vector_store_loaded": retriever is not None and hasattr(retriever, 'rag') and hasattr(retriever.rag, 'vector_store') and retriever.rag.vector_store is not None
     }
 
 if __name__ == "__main__":

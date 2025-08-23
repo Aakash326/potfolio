@@ -26,7 +26,7 @@ class SimpleRAG:
             )
             
             # Load vector store if exists
-            vectorstore_path = "vectorstore/db_faiss"
+            vectorstore_path = os.path.join(os.path.dirname(__file__), "vectorstore", "db_faiss")
             if os.path.exists(vectorstore_path):
                 self.vector_store = FAISS.load_local(
                     vectorstore_path, 
