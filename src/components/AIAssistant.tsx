@@ -153,9 +153,6 @@ const AIAssistant = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <h2 className="section-heading text-center gradient-text">Ask My AI</h2>
-          <p className="text-xl text-muted-foreground text-center mb-12">
-            Upload my custom RAG agent and interact with my AI assistant to learn more about my projects and experience.
-          </p>
 
           {!isAgentUploaded ? (
             <Card className="portfolio-card">
