@@ -73,6 +73,15 @@ const Achievements = () => {
         url: 'https://vision.hack2skill.com/dashboard/user_private_profile/?userId=686abd3c3788a274798654c3',
         badge: 'Hackathon Participant',
         category: 'competition'
+      },
+      {
+        id: 'striver-1',
+        title: 'Striver A2Z Sheet',
+        platform: 'Striver',
+        description: 'Comprehensive DSA practice sheet covering all important topics - 250+ Problems in A2Z',
+        url: 'https://takeuforward.org/profile/Aakash334',
+        badge: 'DSA Sheet Progress',
+        category: 'coding'
       }
     ]);
     
