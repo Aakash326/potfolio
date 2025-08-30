@@ -11,7 +11,6 @@ const Navigation = () => {
     { href: '#home', label: 'Home' },
     { href: '#about', label: 'About' },
     { href: '#projects', label: 'Projects' },
-    { href: '#ai-assistant', label: 'Ask My AI' },
     { href: '/code-playground', label: 'Code Playground', isRoute: true },
     { href: '/rag-agent', label: 'RAG Agent', isRoute: true },
     { href: '#contact', label: 'Contact' },

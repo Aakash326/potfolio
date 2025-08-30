@@ -6,10 +6,10 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 const Resume = () => {
   // Static resume file information - you can update these details
   const resumeInfo = {
-    name: "Sai_Aakash_Resume.pdf",
-    size: "1.2 MB", // Update with actual size
-    downloadUrl: "/resume/Sai_Aakash_Resume.pdf", // Update with actual path
-    lastUpdated: "December 2024"
+    name: "Sai_Aakash_Resume_1page_v2.pdf",
+    size: "5.5K",
+    downloadUrl: "/Sai_Aakash_Resume_1page_v2.pdf",
+    lastUpdated: "August 2024"
   };
 
   const handleDownload = () => {

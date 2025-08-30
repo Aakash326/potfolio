@@ -24,7 +24,6 @@ const Footer = () => {
                   { href: '#home', label: 'Home' },
                   { href: '#about', label: 'About' },
                   { href: '#projects', label: 'Projects' },
-                  { href: '#ai-assistant', label: 'Ask My AI' },
                   { href: '#contact', label: 'Contact' },
                 ].map((link) => (
                   <div key={link.href}>

@@ -265,13 +265,6 @@ const Projects = () => {
                   </AccordionTrigger>
                   <AccordionContent className="px-6 pb-6">
                     <div className="space-y-6">
-                      {/* Add new project button */}
-                      <div className="border-2 border-dashed border-primary/20 rounded-lg p-4 text-center hover:border-primary/40 hover:bg-primary/5 transition-colors cursor-pointer" onClick={() => addNewProject(category)}>
-                        <Plus className="h-8 w-8 text-primary mx-auto mb-2" />
-                        <p className="text-sm text-muted-foreground mb-1">
-                          Add a new {category} project
-                        </p>
-                      </div>
 
                       {/* Projects Grid */}
                       {categoryProjects.length > 0 ? (
@@ -284,7 +277,7 @@ const Projects = () => {
                         <div className="text-center py-8">
                           <FolderOpen className="h-12 w-12 text-muted-foreground mx-auto mb-3" />
                           <p className="text-muted-foreground text-sm">
-                            No {category} projects yet. Click above to create your first one.
+                            No {category} projects yet.
                           </p>
                         </div>
                       )}
@@ -301,7 +294,7 @@ const Projects = () => {
               <FolderOpen className="h-16 w-16 text-muted-foreground mx-auto mb-4" />
               <h3 className="text-xl font-semibold text-foreground mb-2">No projects yet</h3>
               <p className="text-muted-foreground">
-                Start by adding your first project in any category above.
+                Projects will be displayed here.
               </p>
             </div>
           )}

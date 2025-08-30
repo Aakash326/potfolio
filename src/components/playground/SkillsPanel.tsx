@@ -211,14 +211,14 @@ const SKILLS_DATA: Skill[] = [
 
 const ACHIEVEMENTS_DATA: Achievement[] = [
   {
-    id: 'leetcode_210',
+    id: 'leetcode_220',
     title: 'LeetCode Problem Solver',
-    description: 'Solved 210+ data structures and algorithms problems',
+    description: 'Solved 220+ data structures and algorithms problems',
     icon: '🧩',
     category: 'challenge',
     difficulty: 'gold',
     unlockedAt: new Date('2024-06-01'),
-    progress: 210,
+    progress: 220,
     maxProgress: 250,
     reward: 'Algorithm Master Badge'
   },
@@ -314,8 +314,8 @@ const TIMELINE_DATA: TimelineEvent[] = [
   {
     id: 'leetcode_milestone',
     date: new Date('2024-01-15'),
-    title: 'LeetCode 200+ Problems',
-    description: 'Reached milestone of solving 200+ algorithm problems',
+    title: 'LeetCode 220+ Problems',
+    description: 'Reached milestone of solving 220+ algorithm problems',
     type: 'achievement',
     icon: '🏅',
     color: '#FFA726'

@@ -1,0 +1,88 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Font /Subtype /Type1 /Name /F1 /BaseFont /Helvetica >>
+endobj
+2 0 obj
+<< /Type /Font /Subtype /Type1 /Name /F2 /BaseFont /Helvetica-Bold >>
+endobj
+3 0 obj
+<< /Length 4953 >>
+stream
+BT /F2 20 Tf 44.00 720.00 Td (Sai Aakash) Tj ET
+BT /F1 10.5 Tf 44.00 704.00 Td (Hyderabad | saiaakash3333@gmail.com | +91 6305027237) Tj ET
+BT /F1 10.5 Tf 44.00 690.00 Td (LinkedIn: linkedin.com/in/sai-aakash | GitHub: github.com/Aakash326) Tj ET
+BT /F2 12 Tf 44.00 672.00 Td (Summary) Tj ET
+0.6 w 44.00 666.00 m 568.00 666.00 l S
+BT /F1 10.5 Tf 44.00 647.00 Td (Final-year Computer Science student specializing in Artificial Intelligence, Machine Learning, Natural) Tj ET
+BT /F1 10.5 Tf 44.00 634.00 Td (Language Processing \(NLP\), and Large Language Models \(LLMs\). Skilled in building AI-powered applications,) Tj ET
+BT /F1 10.5 Tf 44.00 621.00 Td (RAG pipelines, and deploying models using Docker, Kubernetes, and GCP. Proficient in MLOps/LLMOps, CI/CD) Tj ET
+BT /F1 10.5 Tf 44.00 608.00 Td (pipelines, and cloud deployment with 220+ LeetCode problems solved in DSA \(Java\). Experienced in) Tj ET
+BT /F1 10.5 Tf 44.00 595.00 Td (developing REST APIs, scalable AI pipelines, and automation workflows.) Tj ET
+BT /F2 12 Tf 44.00 577.00 Td (Technical Skills) Tj ET
+0.6 w 44.00 571.00 m 568.00 571.00 l S
+BT /F1 10.5 Tf 44.00 551.00 Td (- Cloud: AWS EC2, S3, EKS, IAM, CloudFormation, GCP) Tj ET
+BT /F1 10.5 Tf 44.00 537.00 Td (- ML/DL: TensorFlow, PyTorch, Scikit-learn, Hugging Face, Transformers, NLTK, LangChain, AutoGen, CrewAI) Tj ET
+BT /F1 10.5 Tf 44.00 523.00 Td (- Programming: Python, Java, SQL) Tj ET
+BT /F1 10.5 Tf 44.00 509.00 Td (- MLOps/LLMOps: Docker, Kubernetes, MLflow, Airflow, Jenkins, GitHub Actions, RAG, Grafana, Prometheus, CI/CD) Tj ET
+BT /F2 12 Tf 44.00 491.00 Td (Experience) Tj ET
+0.6 w 44.00 485.00 m 568.00 485.00 l S
+BT /F2 11 Tf 44.00 465.00 Td (Freelancer \(TrueLancer\) | Machine Learning & Agentic AI Engineer | Jun 2025  Present) Tj ET
+BT /F1 10.5 Tf 54.00 451.00 Td (- Delivered custom ML, NLP, and LLM solutions for clients on the TrueLancer platform.) Tj ET
+BT /F1 10.5 Tf 54.00 437.00 Td (- Built and deployed AI applications using Hugging Face, LangChain, and RAG pipelines.) Tj ET
+BT /F1 10.5 Tf 54.00 423.00 Td (- Implemented multi-agent AI workflows for automation and decision support.) Tj ET
+BT /F2 11 Tf 44.00 409.00 Td (Data Analyst Intern | GeeksforGeeks | May 2025  Aug 2025) Tj ET
+BT /F1 10.5 Tf 54.00 395.00 Td (- Performed EDA, data visualization, and reporting on multiple datasets.) Tj ET
+BT /F1 10.5 Tf 54.00 381.00 Td (- Developed Python automation scripts for data cleaning and preprocessing.) Tj ET
+BT /F1 10.5 Tf 54.00 367.00 Td (- Supported deployment of predictive ML models for internal projects.) Tj ET
+BT /F2 11 Tf 44.00 353.00 Td (Data Analyst & ML Engineer Intern | Unified Mentor | Apr 2025  May 2025) Tj ET
+BT /F1 10.5 Tf 54.00 339.00 Td (- Built and trained predictive ML models for client-specific business problems.) Tj ET
+BT /F1 10.5 Tf 54.00 325.00 Td (- Designed data pipelines and improved model accuracy with feature engineering.) Tj ET
+BT /F2 12 Tf 44.00 307.00 Td (Projects) Tj ET
+0.6 w 44.00 301.00 m 568.00 301.00 l S
+BT /F2 11 Tf 44.00 281.00 Td (Hotel Reservation Prediction) Tj ET
+BT /F1 10.5 Tf 54.00 269.00 Td (Built an end-to-end MLOps pipeline with MLflow, Airflow, Jenkins, Kubernetes, and GCP; automated CI/CD and) Tj ET
+BT /F1 10.5 Tf 54.00 257.00 Td (experiment tracking, reducing release cycle time by 40%. Repo: github.com/Aakash326/Hotel-Reservation-) Tj ET
+BT /F1 10.5 Tf 54.00 245.00 Td (Prediction) Tj ET
+BT /F2 11 Tf 44.00 231.00 Td (Flipkart Product Recommender) Tj ET
+BT /F1 10.5 Tf 54.00 219.00 Td (Developed an e-commerce recommendation engine using LangChain, AstraDB, Grafana, and Kubernetes; improved) Tj ET
+BT /F1 10.5 Tf 54.00 207.00 Td (personalization accuracy by 18% via optimized vector search. Repo: github.com/Aakash326/Flipkart-Product-) Tj ET
+BT /F1 10.5 Tf 54.00 195.00 Td (Recommender) Tj ET
+BT /F2 11 Tf 44.00 181.00 Td (Multi-Agent Data Analyst \(CrewAI\)) Tj ET
+BT /F1 10.5 Tf 54.00 169.00 Td (Designed an 8-agent CrewAI framework for data preprocessing, feature engineering, and predictive modeling;) Tj ET
+BT /F1 10.5 Tf 54.00 157.00 Td (reduced analysis time by 60% and improved model performance by 15%. Repo: github.com/Aakash326/Multi-Agent-) Tj ET
+BT /F1 10.5 Tf 54.00 145.00 Td (Data-Analyst) Tj ET
+BT /F2 12 Tf 44.00 127.00 Td (Education) Tj ET
+0.6 w 44.00 121.00 m 568.00 121.00 l S
+BT /F1 10.5 Tf 44.00 101.00 Td (- GITAM University, B.Tech in Computer Science and Engineering | Aug 2022  May 2026 | Coursework: Java, Python,) Tj ET
+BT /F1 10.5 Tf 44.00 87.00 Td (- Narayana Junior College \(MPC\), Intermediate | Jun 2020  May 2022 | Percentage: 96%) Tj ET
+BT /F2 12 Tf 44.00 69.00 Td (Online Profiles) Tj ET
+0.6 w 44.00 63.00 m 568.00 63.00 l S
+BT /F1 10.5 Tf 44.00 43.00 Td (- LeetCode: Solved 220+ DSA problems \(Java, Algorithms, Data Structures\)) Tj ET
+BT /F1 10.5 Tf 44.00 29.00 Td (- HackerRank: Gold Badge \(Problem Solving\)) Tj ET
+BT /F1 10.5 Tf 44.00 15.00 Td (- Kaggle: Active in ML/DL competitions) Tj ET
+endstream
+endobj
+4 0 obj
+<< /Type /Page /Parent 5 0 R /MediaBox [0 0 612 792] /Contents 3 0 R /Resources << /Font << /F1 1 0 R /F2 2 0 R >> >> >>
+endobj
+5 0 obj
+<< /Type /Pages /Kids [4 0 R] /Count 1 >>
+endobj
+6 0 obj
+<< /Type /Catalog /Pages 5 0 R >>
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000015 00000 n 
+0000000095 00000 n 
+0000000180 00000 n 
+0000005185 00000 n 
+0000005321 00000 n 
+0000005378 00000 n 
+trailer
+<< /Size 7 /Root 6 0 R >>
+startxref
+5427
+%%EOF

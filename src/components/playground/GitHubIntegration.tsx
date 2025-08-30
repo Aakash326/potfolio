@@ -117,7 +117,7 @@ const AAKASH_GITHUB_DATA = {
       id: 5,
       name: 'leetcode-solutions',
       fullName: 'saiaakash/leetcode-solutions',
-      description: '210+ LeetCode problems solved with detailed explanations',
+      description: '220+ LeetCode problems solved with detailed explanations',
       language: 'Python',
       stargazersCount: 25,
       forksCount: 8,

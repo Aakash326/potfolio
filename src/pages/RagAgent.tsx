@@ -8,12 +8,7 @@ import Footer from '@/components/Footer';
 import ParticleBackground from '@/components/ParticleBackground';
 
 const RagAgent = () => {
-  const [messages, setMessages] = useState<Array<{ role: 'user' | 'assistant'; content: string }>>([
-    {
-      role: 'assistant',
-      content: 'Hello! I\'m your AI Medical Assistant. I can help answer your medical questions based on my knowledge base. How can I assist you today?'
-    }
-  ]);
+  const [messages, setMessages] = useState<Array<{ role: 'user' | 'assistant'; content: string }>>([]);
   const [inputMessage, setInputMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
@@ -58,16 +53,16 @@ const RagAgent = () => {
             {/* Header Section */}
             <div className="text-center mb-8">
               <h1 className="text-4xl font-bold gradient-text mb-4">
-                RAG Medical Chatbot
+                Aakash Assistant
               </h1>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                An intelligent medical assistant powered by Retrieval-Augmented Generation (RAG) 
-                technology, providing accurate medical information from a curated knowledge base.
+                An intelligent personal assistant powered by Retrieval-Augmented Generation (RAG) 
+                technology, providing accurate information from curated knowledge sources.
               </p>
             </div>
 
             {/* Stats Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
               <Card className="portfolio-card">
                 <CardHeader className="pb-3">
                   <CardTitle className="text-sm flex items-center gap-2">
@@ -76,23 +71,11 @@ const RagAgent = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-2xl font-bold gradient-text">Llama 2</p>
-                  <p className="text-xs text-muted-foreground">7B Parameters</p>
+                  <p className="text-2xl font-bold gradient-text">Gemini 1.5 Flash</p>
+                  <p className="text-xs text-muted-foreground">Google AI</p>
                 </CardContent>
               </Card>
 
-              <Card className="portfolio-card">
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-sm flex items-center gap-2">
-                    <FileText className="h-4 w-4 text-primary" />
-                    Knowledge Base
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-2xl font-bold gradient-text">500+</p>
-                  <p className="text-xs text-muted-foreground">Medical Documents</p>
-                </CardContent>
-              </Card>
 
               <Card className="portfolio-card">
                 <CardHeader className="pb-3">
@@ -113,7 +96,7 @@ const RagAgent = () => {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Bot className="h-5 w-5 text-primary" />
-                  Chat with Medical AI Assistant
+                  Chat with Assistant RAG Agent
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -165,7 +148,7 @@ const RagAgent = () => {
 
                 <div className="flex gap-2">
                   <Input
-                    placeholder="Ask a medical question..."
+                    placeholder="Ask question about Aakash?"
                     value={inputMessage}
                     onChange={(e) => setInputMessage(e.target.value)}
                     onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
@@ -179,44 +162,20 @@ const RagAgent = () => {
               </CardContent>
             </Card>
 
-            {/* Technical Details */}
+            {/* Coming Soon */}
             <Card className="portfolio-card mt-8">
               <CardHeader>
-                <CardTitle>Technical Implementation</CardTitle>
+                <CardTitle className="text-center">🚀 Coming Soon</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <h3 className="font-semibold mb-2 text-primary">Backend Stack</h3>
-                    <ul className="space-y-1 text-sm text-muted-foreground">
-                      <li>• FastAPI for high-performance API</li>
-                      <li>• LangChain for RAG pipeline</li>
-                      <li>• FAISS vector database</li>
-                      <li>• HuggingFace embeddings</li>
-                      <li>• Llama 2 7B model via CTransformers</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-2 text-primary">Key Features</h3>
-                    <ul className="space-y-1 text-sm text-muted-foreground">
-                      <li>• Context-aware responses</li>
-                      <li>• Medical document retrieval</li>
-                      <li>• Session management</li>
-                      <li>• Temperature control for responses</li>
-                      <li>• Streaming response support</li>
-                    </ul>
-                  </div>
-                </div>
-
-                <div className="mt-6 flex gap-4">
+                <div className="text-center py-8">
+                  <h3 className="text-2xl font-bold gradient-text mb-4">Medical RAG Agent</h3>
+                  <p className="text-muted-foreground text-lg mb-6">
+                    Advanced medical AI assistant with specialized healthcare knowledge base coming soon!
+                  </p>
                   <Button variant="outline" asChild>
                     <a href="https://github.com/Aakash326/RAG-medical-chatbot" target="_blank" rel="noopener noreferrer">
                       View on GitHub
-                    </a>
-                  </Button>
-                  <Button variant="outline" asChild>
-                    <a href="#" onClick={(e) => { e.preventDefault(); alert('Demo deployment coming soon!'); }}>
-                      Live Demo
                     </a>
                   </Button>
                 </div>

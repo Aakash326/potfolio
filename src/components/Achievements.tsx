@@ -26,6 +26,57 @@ const Achievements = () => {
   }, []);
 
   const loadAchievements = async () => {
+    // Temporarily force use of updated default data instead of database
+    // TODO: Remove this after database is updated with correct values
+    setAchievements([
+      {
+        id: 'leetcode-1',
+        title: 'LeetCode Profile',
+        platform: 'LeetCode',
+        description: 'Solved algorithmic problems and coding challenges',
+        url: 'https://leetcode.com/u/N8lUrPGvsi/',
+        badge: '220+ Problems Solved',
+        category: 'coding'
+      },
+      {
+        id: 'hackerrank-1',
+        title: 'HackerRank Profile',
+        platform: 'HackerRank',
+        description: 'Competitive programming and skill assessments',
+        url: 'https://www.hackerrank.com/profile/saiaakash33333',
+        badge: '150+ Problems with SQL, NLP, Python, DSA',
+        category: 'coding'
+      },
+      {
+        id: 'kaggle-1',
+        title: 'Kaggle Competitions',
+        platform: 'Kaggle',
+        description: 'Active participation in competitions',
+        url: 'https://www.kaggle.com/saiaakash332',
+        badge: 'Competitor',
+        category: 'competition'
+      },
+      {
+        id: 'devpost-1',
+        title: 'Devpost Hackathons',
+        platform: 'Devpost',
+        description: 'Active participant in hackathons',
+        url: 'https://devpost.com/saiaakash33333',
+        badge: 'Hackathon Participant',
+        category: 'competition'
+      },
+      {
+        id: 'hack2skill-1',
+        title: 'Hack2Skill',
+        platform: 'Hack2Skill',
+        description: 'Active participant in hackathons',
+        url: 'https://vision.hack2skill.com/dashboard/user_private_profile/?userId=686abd3c3788a274798654c3',
+        badge: 'Hackathon Participant',
+        category: 'competition'
+      }
+    ]);
+    
+    /* Commented out database loading to force updated defaults
     try {
       const { data: achievementsData, error } = await supabase
         .from('achievements')
@@ -55,7 +106,7 @@ const Achievements = () => {
           platform: 'LeetCode',
           description: 'Solved algorithmic problems and coding challenges',
           url: 'https://leetcode.com/u/N8lUrPGvsi/',
-          badge: '100+ Problems Solved',
+          badge: '220+ Problems Solved',
           category: 'coding'
         },
         {
@@ -69,6 +120,7 @@ const Achievements = () => {
         }
       ]);
     }
+    */
   };
 
   const addNewAchievement = async (category: Achievement['category']) => {
@@ -151,9 +203,7 @@ const Achievements = () => {
 
   const categories = [
     { id: 'coding' as const, label: 'Coding Platforms', icon: Code },
-    { id: 'certification' as const, label: 'Certifications', icon: Award },
-    { id: 'competition' as const, label: 'Competitions', icon: Trophy },
-    { id: 'other' as const, label: 'Other', icon: Award }
+    { id: 'competition' as const, label: 'Competitions', icon: Trophy }
   ];
 
   const getAchievementsByCategory = (category: Achievement['category']) => {
@@ -256,7 +306,7 @@ const Achievements = () => {
         <div className="max-w-7xl mx-auto">
           <h2 className="section-heading text-center gradient-text">Achievements</h2>
           <p className="text-xl text-muted-foreground text-center mb-12 max-w-4xl mx-auto">
-            A showcase of my accomplishments across coding platforms, certifications, and competitions.
+            A showcase of my accomplishments across coding platforms and competitions.
           </p>
 
           <div className="space-y-12">
@@ -277,16 +327,6 @@ const Achievements = () => {
                     ))}
                   </div>
 
-                  {/* Add new achievement button */}
-                  <div 
-                    className="border-2 border-dashed border-primary/20 rounded-lg p-6 text-center hover:border-primary/40 hover:bg-primary/5 transition-colors cursor-pointer"
-                    onClick={() => addNewAchievement(category.id)}
-                  >
-                    <Plus className="h-8 w-8 text-primary mx-auto mb-2" />
-                    <p className="text-sm text-muted-foreground">
-                      Add new {category.label.toLowerCase()} achievement
-                    </p>
-                  </div>
                 </div>
               );
             })}
