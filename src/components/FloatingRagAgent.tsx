@@ -41,7 +41,7 @@ const FloatingRagAgent = () => {
   const checkApiStatus = async () => {
     setIsCheckingStatus(true);
     try {
-      const response = await fetch('http://localhost:8000/api/status', {
+      const response = await fetch(`${import.meta.env.VITE_RAG_API_URL || 'http://localhost:8000'}/api/status`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -113,7 +113,7 @@ const FloatingRagAgent = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch('http://localhost:8000/api/chat', {
+      const response = await fetch(`${import.meta.env.VITE_RAG_API_URL || 'http://localhost:8000'}/api/chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
