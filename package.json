@@ -4,7 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"vite\" \"cd Rag_agent && python main.py\"",
+    "dev": "vite",
+    "dev:backend": "python app/application.py",
+    "dev:full": "concurrently \"npm run dev\" \"npm run dev:backend\"",
     "dev:frontend": "vite",
     "dev:rag": "cd Rag_agent && python main.py",
     "build": "vite build",

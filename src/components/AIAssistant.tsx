@@ -15,9 +15,13 @@ const AIAssistant = () => {
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
-  // Check for existing AI assistant files on component mount
+  // Auto-enable the chat interface and add welcome message
   useEffect(() => {
-    checkExistingFiles();
+    setIsAgentUploaded(true);
+    setMessages([{
+      role: 'assistant',
+      content: "Hello! I'm Sai Aakash's RAG-powered AI assistant. I can help you learn about his projects, experience, and technical skills based on his portfolio documents. Try asking me something like 'Tell me about Aakash's TensorFlow projects' or 'What internships has Sai Aakash done?'"
+    }]);
   }, []);
 
   const checkExistingFiles = async () => {
@@ -108,25 +112,48 @@ const AIAssistant = () => {
     }
   };
 
-  const handleSendMessage = () => {
+  const handleSendMessage = async () => {
     if (!inputMessage.trim() || !isAgentUploaded) return;
 
     const userMessage = { role: 'user' as const, content: inputMessage };
     setMessages(prev => [...prev, userMessage]);
+    setIsLoading(true);
 
-    // Simulate AI response
-    setTimeout(() => {
-      const responses = [
-        "Based on Sai Aakash's portfolio, he has extensive experience with TensorFlow and machine learning projects. He's worked on various deep learning models during his internships.",
-        "Sai Aakash has completed internships at GeeksforGeeks as a Data Analyst and at Delsquare as a Python Developer. He's also actively freelancing on Fiverr, delivering ML solutions to global clients.",
-        "His technical stack includes Python, TensorFlow, PyTorch, Hugging Face, LangChain, and Streamlit. He specializes in NLP, RAG systems, and Large Language Models.",
-        "Sai Aakash is currently in his 4th year of Computer Science Engineering at GITAM University, focusing on AI and machine learning technologies."
-      ];
-      
-      const randomResponse = responses[Math.floor(Math.random() * responses.length)];
-      const assistantMessage = { role: 'assistant' as const, content: randomResponse };
+    try {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          prompt: inputMessage,
+          session_id: 'portfolio_chat'
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      const assistantMessage = { role: 'assistant' as const, content: data.answer };
       setMessages(prev => [...prev, assistantMessage]);
-    }, 1000);
+    } catch (error) {
+      console.error('Error calling backend API:', error);
+      const errorMessage = { 
+        role: 'assistant' as const, 
+        content: "I'm sorry, I'm having trouble connecting to my backend right now. Please make sure the RAG backend is running on port 5001. You can start it with 'npm run dev:full'." 
+      };
+      setMessages(prev => [...prev, errorMessage]);
+      
+      toast({
+        title: "Connection Error",
+        description: "Failed to connect to the RAG backend. Please ensure it's running.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsLoading(false);
+    }
 
     setInputMessage('');
   };
@@ -247,8 +274,9 @@ const AIAssistant = () => {
                       onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
                       className="flex-1"
                     />
-                    <Button onClick={handleSendMessage}>
+                    <Button onClick={handleSendMessage} disabled={isLoading}>
                       <MessageCircle className="h-4 w-4" />
+                      {isLoading && " ..."}
                     </Button>
                   </div>
                 </CardContent>
