@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.git/
+src/
+public/
+components.json
+*.config.js
+*.config.ts
+package*.json
+bun.lockb
+tailwind.config.ts
+tsconfig*.json
+eslint.config.js
+supabase/
+.env.local
+.env.development
+README.md
